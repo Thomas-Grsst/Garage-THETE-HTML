@@ -1,0 +1,10 @@
+# robots.txt pour Garage THETE
+User-agent: *
+Allow: /
+Disallow: /mentions-legales.html
+Disallow: /admin/
+Disallow: /*.php$
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://garage-thete.netlify.app/sitemap.xml

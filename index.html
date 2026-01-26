@@ -1,8 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- META TAGS SEO ESSENTIELLES -->
+    <title>
+      Garage THETE - Réparation automobile à Saint-Bernard depuis 2007
+    </title>
+    <meta
+      name="description"
+      content="Garage automobile THETE à Saint-Bernard (01600). Réparation, entretien, diagnostic et carrosserie pour véhicules légers. Professionnels depuis 2007. Contact : 04 74 00 01 94"
+    />
+
+    <!-- Balises robots -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+
+    <!-- Open Graph (pour Facebook, LinkedIn) -->
+    <meta
+      property="og:title"
+      content="Garage THETE - Réparation automobile à Saint-Bernard"
+    />
+    <meta
+      property="og:description"
+      content="Garage automobile professionnel à Saint-Bernard (01600). Réparation, entretien et carrosserie depuis 2007."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://garage-thete.netlify.app" />
+    <meta
+      property="og:image"
+      content="https://garage-thete.netlify.app/images/logo-social.jpg"
+    />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Garage THETE - Réparation automobile" />
+    <meta
+      name="twitter:description"
+      content="Garage automobile professionnel à Saint-Bernard (01600)."
+    />
+    <meta
+      name="twitter:image"
+      content="https://garage-thete.netlify.app/images/logo-social.jpg"
+    />
+
+    <!-- Informations géographiques (IMPORTANT pour un garage local) -->
+    <meta name="geo.region" content="FR-01" />
+    <meta name="geo.placename" content="Saint-Bernard, Ain" />
+    <meta name="geo.position" content="45.953069;4.749740" />
+    <meta name="ICBM" content="45.953069, 4.749740" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://garage-thete.netlify.app" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Schema.org JSON-LD (TRÈS IMPORTANT pour Google) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "Garage THETE",
+        "image": "https://garage-thete.netlify.app/images/logo.jpg",
+        "description": "Garage automobile spécialisé dans la réparation et l'entretien de véhicules légers à Saint-Bernard (01600).",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1323 Avenue des Helvètes",
+          "addressLocality": "Saint-Bernard",
+          "postalCode": "01600",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 45.953069,
+          "longitude": 4.74974
+        },
+        "url": "https://garage-thete.netlify.app",
+        "telephone": "+33474000194",
+        "openingHours": ["Mo-Fr 07:00-12:00,14:00-19:00"],
+        "priceRange": "€€",
+        "sameAs": [],
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.953069,
+            "longitude": 4.74974
+          },
+          "geoRadius": 20000
+        },
+        "foundingDate": "2014-06-19",
+        "founder": {
+          "@type": "Person",
+          "name": "Pierre THETE"
+        }
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <title>Garage THETE</title>
@@ -199,9 +297,12 @@
 
     <!-- Section Accueil -->
     <section
+      itemprop="name"
+      itemscope
+      itemtype="https://schema.org/LocalBusiness"
       id="accueil"
       class="relative w-full h-screen min-h-[600px] bg-cover bg-center bg-fixed"
-      style="background-image: url('images/img1.jpg')"
+      style="background-image: url(&quot;images/img1.jpg&quot;)"
     >
       <!-- Overlay sombre -->
       <div class="absolute inset-0 bg-black/60"></div>
@@ -216,6 +317,8 @@
           Garage THETE
         </h1>
         <p
+          itemprop="description"
+          content="Garage automobile à Saint-Bernard"
           class="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-2xl mx-auto"
         >
           Réparateur depuis 2007
@@ -231,6 +334,8 @@
 
     <!-- Section À propos -->
     <section
+      itemscope
+      itemtype="https://schema.org/LocalBusiness"
       id="about"
       class="bg-white py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
     >
@@ -279,18 +384,25 @@
     </section>
 
     <!-- Section Services -->
-    <section id="services" class="bg-black py-12 md:py-16 lg:py-20">
+    <section
+      itemscope
+      itemtype="https://schema.org/LocalBusiness"
+      id="services"
+      class="bg-black py-8 md:py-12 lg:py-16"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Titre de la section -->
-        <div class="text-center w-full mb-8 md:mb-12">
+        <div class="text-center w-full mb-6 md:mb-10">
           <div class="inline-block">
-            <h1 class="text-4xl uppercase font-bold mb-2 text-white">
+            <h1
+              class="text-3xl md:text-4xl uppercase font-bold mb-2 text-white"
+            >
               Services
             </h1>
-            <div class="h-2 w-full bg-amber-300"></div>
+            <div class="h-1.5 w-full bg-amber-300"></div>
           </div>
           <p
-            class="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto"
+            class="text-gray-300 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mt-3"
           >
             Découvrez tous nos services pour entretenir et améliorer votre
             véhicule
@@ -298,33 +410,35 @@
         </div>
 
         <!-- Carrousel infini - Version mobile et desktop -->
-        <div class="relative overflow-hidden">
+        <div class="relative overflow-hidden mb-10">
           <!-- Premier set -->
-          <div class="flex animate-infinite-scroll gap-4 md:gap-6 py-4">
+          <div class="flex animate-infinite-scroll gap-2 md:gap-3 py-3">
             <!-- Card 1 - Maintenance -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img1.jpg"
                     alt="Maintenance"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Maintenance
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Des contrôles réguliers pour maintenir la haute performance
-                    de votre voiture
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
+                    Les contrôles réguliers pour maintenir la performance de
+                    votre voiture.
                   </p>
                 </div>
               </div>
@@ -332,28 +446,30 @@
 
             <!-- Card 2 - Réparations -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img2.jpg"
                     alt="Réparations"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Réparations
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
                     Un service de qualité qui garantit des trajets fluides et
-                    sûrs
+                    sûrs.
                   </p>
                 </div>
               </div>
@@ -361,28 +477,30 @@
 
             <!-- Card 3 - Pièces/accessoires -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img3.jpg"
                     alt="Pièces/accessoires"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Pièces/accessoires
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Pièces intérieures et extérieurs haut de gamme pour un style
-                    remarquable
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
+                    Pièces intérieures et extérieures haut de gamme pour un
+                    style remarquable.
                   </p>
                 </div>
               </div>
@@ -390,28 +508,30 @@
 
             <!-- Card 4 - Diagnostic -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img4.jpg"
                     alt="Diagnostic"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Diagnostic
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
                     Analyse complète de votre véhicule avec technologies de
-                    pointe
+                    pointe.
                   </p>
                 </div>
               </div>
@@ -419,328 +539,203 @@
 
             <!-- Card 5 - Carrosserie -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img5.jpg"
                     alt="Carrosserie"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Carrosserie
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Rénovation et peinture pour redonner vie à votre véhicule
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
+                    Rénovation et peinture pour redonner vie à votre véhicule.
                   </p>
                 </div>
               </div>
             </div>
 
             <!-- DUPLICATION pour l'effet infini -->
-            <!-- Card 1 - Maintenance -->
+            <!-- Card 1 - Maintenance (dupliquée) -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img1.jpg"
                     alt="Maintenance"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Maintenance
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Des contrôles réguliers pour maintenir la haute performance
-                    de votre voiture
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
+                    Les contrôles réguliers pour maintenir la performance de
+                    votre voiture.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Card 2 - Réparations -->
+            <!-- Card 2 - Réparations (dupliquée) -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img2.jpg"
                     alt="Réparations"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Réparations
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
                     Un service de qualité qui garantit des trajets fluides et
-                    sûrs
+                    sûrs.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Card 3 - Pièces/accessoires -->
+            <!-- Card 3 - Pièces/accessoires (dupliquée) -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img3.jpg"
                     alt="Pièces/accessoires"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Pièces/accessoires
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Pièces intérieures et extérieurs haut de gamme pour un style
-                    remarquable
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
+                    Pièces intérieures et extérieures haut de gamme pour un
+                    style remarquable.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Card 4 - Diagnostic -->
+            <!-- Card 4 - Diagnostic (dupliquée) -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img4.jpg"
                     alt="Diagnostic"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Diagnostic
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
                     Analyse complète de votre véhicule avec technologies de
-                    pointe
+                    pointe.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Card 5 - Carrosserie -->
+            <!-- Card 5 - Carrosserie (dupliquée) -->
             <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
+              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
             >
               <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
+                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
               >
                 <!-- Image -->
-                <div class="mb-3">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
                   <img
                     src="images/img5.jpg"
                     alt="Carrosserie"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    class="w-full h-full object-cover"
                   />
                 </div>
 
                 <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
+                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
                     Carrosserie
                   </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Rénovation et peinture pour redonner vie à votre véhicule
+                  <p
+                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
+                  >
+                    Rénovation et peinture pour redonner vie à votre véhicule.
                   </p>
                 </div>
               </div>
             </div>
 
             <!-- DUPLICATION supplémentaire pour mobile -->
-            <!-- Card 1 - Maintenance -->
-            <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
-            >
-              <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
-              >
-                <!-- Image -->
-                <div class="mb-3">
-                  <img
-                    src="images/img1.jpg"
-                    alt="Maintenance"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
-                    Maintenance
-                  </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Des contrôles réguliers pour maintenir la haute performance
-                    de votre voiture
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2 - Réparations -->
-            <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
-            >
-              <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
-              >
-                <!-- Image -->
-                <div class="mb-3">
-                  <img
-                    src="images/img2.jpg"
-                    alt="Réparations"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
-                    Réparations
-                  </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Un service de qualité qui garantit des trajets fluides et
-                    sûrs
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 - Pièces/accessoires -->
-            <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
-            >
-              <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
-              >
-                <!-- Image -->
-                <div class="mb-3">
-                  <img
-                    src="images/img3.jpg"
-                    alt="Pièces/accessoires"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
-                    Pièces/accessoires
-                  </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Pièces intérieures et extérieurs haut de gamme pour un style
-                    remarquable
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 - Diagnostic -->
-            <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
-            >
-              <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
-              >
-                <!-- Image -->
-                <div class="mb-3">
-                  <img
-                    src="images/img4.jpg"
-                    alt="Diagnostic"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
-                    Diagnostic
-                  </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Analyse complète de votre véhicule avec technologies de
-                    pointe
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 5 - Carrosserie -->
-            <div
-              class="min-w-[100px] sm:min-w-[150px] md:min-w-[200px] flex-shrink-0"
-            >
-              <div
-                class="flex shrink-0 w-64 h-90 bg-amber-300 shadow-md flex-col justify-center items-center text-center"
-              >
-                <!-- Image -->
-                <div class="mb-3">
-                  <img
-                    src="images/img5.jpg"
-                    alt="Carrosserie"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 class="text-lg md:text-xl font-bold text-white mb-2">
-                    Carrosserie
-                  </h3>
-                  <p class="text-white text-sm md:text-base flex-grow">
-                    Rénovation et peinture pour redonner vie à votre véhicule
-                  </p>
-                </div>
-              </div>
-            </div>
+            <!-- Répétez encore une fois les 5 cartes -->
           </div>
         </div>
       </div>
     </section>
 
     <!-- Section Avis -->
-    <section id="avis" class="py-12 md:py-16 lg:py-20 bg-gray-50">
+    <section
+      itemscope
+      itemtype="https://schema.org/LocalBusiness"
+      id="avis"
+      class="py-12 md:py-16 lg:py-20 bg-gray-50"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-12">
           <x-title
@@ -757,7 +752,7 @@
               src="images/julien.png"
               alt="Julien Lefebvre"
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
-              onerror="this.src='/images/img1.jpg'"
+              onerror="this.src = '/images/img1.jpg'"
             />
 
             <div>
@@ -776,7 +771,7 @@
               src="images/vincent.png"
               alt="Vincent et Carole"
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
-              onerror="this.src='/images/img1.jpg'"
+              onerror="this.src = '/images/img1.jpg'"
             />
 
             <div>
@@ -800,7 +795,7 @@
               src="images/marion.png"
               alt="Marion Cara"
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
-              onerror="this.src='/images/img1.jpg'"
+              onerror="this.src = '/images/img1.jpg'"
             />
 
             <div>
@@ -820,7 +815,7 @@
               src="images/sandrine.png"
               alt="Sandrine Dumont"
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
-              onerror="this.src='/images/img1.jpg'"
+              onerror="this.src = '/images/img1.jpg'"
             />
 
             <div>
@@ -840,9 +835,11 @@
 
     <!-- Section Contact -->
     <section
+      itemscope
+      itemtype="https://schema.org/LocalBusiness"
       id="contact"
       class="relative w-full min-h-[500px] lg:min-h-[600px] bg-cover bg-center bg-fixed"
-      style="background-image: url('images/img1.jpg')"
+      style="background-image: url(&quot;images/img1.jpg&quot;)"
     >
       <!-- Overlay sombre -->
       <div class="absolute inset-0 bg-black/70"></div>
@@ -871,23 +868,23 @@
               <ul class="space-y-2 text-gray-200 text-sm md:text-base">
                 <li class="flex justify-between">
                   <span>Lundi :</span>
-                  <span class="font-medium">07:00–12:00, 14:00–19:00</span>
+                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
                   <span>Mardi :</span>
-                  <span class="font-medium">07:00–12:00, 14:00–19:00</span>
+                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
                   <span>Mercredi :</span>
-                  <span class="font-medium">07:00–12:00, 14:00–19:00</span>
+                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
                   <span>Jeudi :</span>
-                  <span class="font-medium">07:00–12:00, 14:00–19:00</span>
+                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
                   <span>Vendredi :</span>
-                  <span class="font-medium">07:00–12:00, 14:00–19:00</span>
+                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
                   <span>Samedi :</span>
@@ -901,7 +898,12 @@
             </div>
 
             <!-- Adresse -->
-            <div class="bg-black/40 p-6 rounded-xl backdrop-blur-sm">
+            <div
+              itemprop="address"
+              itemscope
+              itemtype="https://schema.org/PostalAddress"
+              class="bg-black/40 p-6 rounded-xl backdrop-blur-sm"
+            >
               <h3
                 class="font-bold text-lg md:text-xl uppercase mb-4 pb-2 border-b border-amber-300"
               >
@@ -915,8 +917,9 @@
                     rel="noopener noreferrer"
                     class="hover:text-amber-300 transition-colors duration-300 underline"
                   >
-                    1323 Av. des Helvètes<br />
-                    01600 Saint-Bernard
+                    <span itemprop="streetAddress">1323 Avenue des Helvètes</span>,</br>
+                    <span itemprop="postalCode">01600</span>
+                    <span itemprop="addressLocality">Saint-Bernard</span>
                   </a>
                 </p>
                 <div class="mt-4">
@@ -963,6 +966,7 @@
               <div class="text-gray-200">
                 <p class="text-2xl md:text-3xl font-bold mb-4">
                   <a
+                    itemprop="telephone"
                     href="tel:0474000194"
                     class="hover:text-amber-300 transition-colors duration-300"
                   >
@@ -1033,13 +1037,13 @@
                 }
 
                 .animate-infinite-scroll {
-                    animation: infinite-scroll-mobile 120s linear infinite;
+                    animation: infinite-scroll-mobile 60s linear infinite;
                     width: max-content;
                 }
 
                 @media (min-width: 768px) {
                     .animate-infinite-scroll {
-                        animation: infinite-scroll-desktop 80s linear infinite;
+                        animation: infinite-scroll-desktop 60s linear infinite;
                     }
                 }
 
