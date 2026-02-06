@@ -535,7 +535,7 @@
                         (ex. : Unsplash, Pexels),
                       </li>
                       <li>
-                        de photographies fournies par
+                        de photographies fournies par le
                         <strong>Garage THETE</strong>,
                       </li>
                       <li>
@@ -916,7 +916,6 @@
                 </p>
                 <p class="text-yellow-300 text-xs mt-1">
                   Site hébergé par Netlify • Développé par Thomas GROSSAT
-                  (étudiant)
                 </p>
               </div>
               <div class="flex space-x-4">
@@ -937,104 +936,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Bouton de téléchargement PDF
-        <div class="mt-8 text-center">
-          <button
-            onclick="downloadAsPDF()"
-            id="pdf-button"
-            class="inline-flex items-center px-5 py-2.5 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition shadow-md hover:shadow-lg"
-          >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              ></path>
-            </svg>
-            Télécharger en PDF
-          </button>
-        </div> -->
       </div>
     </div>
-
-    <!-- <script>
-      // S'assurer que jsPDF est disponible globalement
-      window.jsPDF = window.jspdf.jsPDF;
-
-      function downloadAsPDF() {
-        const element = document.getElementById("content-to-pdf");
-        const button = document.getElementById("pdf-button");
-        const fileName =
-          "mentions-legales-garage-thete-" +
-          new Date().toISOString().slice(0, 10) +
-          ".pdf";
-
-        // Afficher un message de chargement
-        const originalText = button.innerHTML;
-        button.innerHTML =
-          '<span class="flex items-center"><svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Génération du PDF...</span>';
-        button.disabled = true;
-
-        // Utiliser html2canvas pour capturer le contenu
-        html2canvas(element, {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          backgroundColor: "#ffffff",
-        })
-          .then((canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF("p", "mm", "a4");
-
-            const imgWidth = 210; // A4 width in mm
-            const pageHeight = 297; // A4 height in mm
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-            let heightLeft = imgHeight;
-            let position = 0;
-
-            pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
-
-            // Ajouter des pages supplémentaires si nécessaire
-            while (heightLeft >= 0) {
-              position = heightLeft - imgHeight;
-              pdf.addPage();
-              pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-              heightLeft -= pageHeight;
-            }
-
-            // Télécharger le PDF
-            pdf.save(fileName);
-
-            // Restaurer le bouton
-            button.innerHTML = originalText;
-            button.disabled = false;
-          })
-          .catch((error) => {
-            console.error("Erreur lors de la génération du PDF:", error);
-            alert(
-              "Erreur lors de la génération du PDF. Vous pouvez utiliser la fonction d'impression de votre navigateur (Ctrl+P).",
-            );
-
-            // Restaurer le bouton
-            button.innerHTML = originalText;
-            button.disabled = false;
-          });
-      }
-
-      // Fallback : fonction d'impression classique
-      function printPage() {
-        window.print();
-      }
-    </script> -->
   </body>
 </html>
