@@ -1111,23 +1111,6 @@
           });
         }
 
-        // Générer les indicateurs
-        function generateIndicators() {
-          indicatorsContainer.innerHTML = "";
-
-          servicesData.forEach((_, index) => {
-            const indicator = document.createElement("div");
-            indicator.className = `indicator ${index === 0 ? "active" : ""}`;
-            indicator.dataset.index = index;
-
-            indicator.addEventListener("click", () => {
-              goToSlide(index);
-            });
-
-            indicatorsContainer.appendChild(indicator);
-          });
-        }
-
         // Aller à une slide spécifique
         function goToSlide(index) {
           currentIndex = index;
@@ -1176,25 +1159,6 @@
           currentIndex = 0;
 
           updateIndicators();
-        }
-
-        // Mettre à jour les indicateurs
-        function updateIndicators() {
-          const indicators = document.querySelectorAll(".indicator");
-          const totalCards = servicesData.length;
-          const calculatedIndex =
-            Math.abs(
-              Math.round(currentTranslate / (getCardWidth() + getMargin())),
-            ) % totalCards;
-          const activeIndex = isAutoScroll ? currentIndex : calculatedIndex;
-
-          indicators.forEach((indicator, i) => {
-            if (i === activeIndex) {
-              indicator.classList.add("active");
-            } else {
-              indicator.classList.remove("active");
-            }
-          });
         }
 
         // Mettre à jour le statut
@@ -1342,7 +1306,6 @@
         // Initialiser le carrousel
         function initCarousel() {
           generateCarouselCards();
-          generateIndicators();
           initDragAndScroll();
 
           // Réinitialiser périodiquement l'animation auto-scroll
