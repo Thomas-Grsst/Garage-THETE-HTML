@@ -3,22 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- META TAGS SEO ESSENTIELLES -->
-    <title>
-      Garage THETE - Réparation automobile situé à Saint-Bernard
-    </title>
+    <title>Garage THETE - Réparation automobile situé à Saint-Bernard</title>
     <meta
       name="description"
       content="Garage automobile THETE à Saint-Bernard (01600). Réparation, entretien, diagnostic et carrosserie pour véhicules légers."
     />
-
-    <!-- Balises robots -->
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
-
-    <!-- Open Graph (pour Facebook, LinkedIn) -->
     <meta
       property="og:title"
       content="Garage THETE - Réparation automobile à Saint-Bernard"
@@ -34,10 +26,11 @@
       content="https://garage-thete.netlify.app/images/logo-social.jpg"
     />
     <meta property="og:locale" content="fr_FR" />
-
-    <!-- LinkedIn Cards -->
     <meta name="linkedIn:card" content="summary_large_image" />
-    <meta name="LinkedIn:title" content="Garage THETE - Réparation automobile" />
+    <meta
+      name="LinkedIn:title"
+      content="Garage THETE - Réparation automobile"
+    />
     <meta
       name="LinkedIn:description"
       content="Garage automobile professionnel à Saint-Bernard (01600)."
@@ -46,21 +39,13 @@
       name="LinkedIn:image"
       content="https://garage-thete.netlify.app/#footer"
     />
-
-    <!-- Informations géographiques (IMPORTANT pour un garage local) -->
     <meta name="geo.region" content="FR-01" />
     <meta name="geo.placename" content="Saint-Bernard, Ain" />
     <meta name="geo.position" content="45.953069;4.749740" />
     <meta name="ICBM" content="45.953069, 4.749740" />
-
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://garage-thete.netlify.app" />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <!-- Schema.org JSON-LD (TRÈS IMPORTANT pour Google) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -102,81 +87,151 @@
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <title>Garage THETE</title>
     <style>
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 80px; /* Compense la navbar fixe */
+        scroll-padding-top: 80px;
+        -webkit-overflow-scrolling: touch;
       }
 
       section {
-        scroll-margin-top: 80px; /* Pour les ancres avec navbar fixe */
+        scroll-margin-top: 80px;
       }
 
-      /* Animation personnalisée pour plus de contrôle */
-      .smooth-scroll {
-        scroll-behavior: smooth;
-        transition: scroll-behavior 0.3s ease-in-out;
-      }
-
-      /* Pour désactiver le smooth scroll sur certains éléments si nécessaire */
-      .no-smooth-scroll {
-        scroll-behavior: auto;
-      }
-      /* Animation pour le menu mobile */
-      #mobile-menu {
-        max-height: 0;
-        overflow: hidden;
-      }
-
-      #mobile-menu.active {
-        max-height: 500px;
-      }
-
-      /* Animation pour le carrousel */
-      @keyframes infinite-scroll-mobile {
-        0% {
-          transform: translateX(0);
+      @supports (-webkit-touch-callout: none) {
+        .h-screen {
+          height: 100vh;
+          height: -webkit-fill-available;
         }
-        100% {
-          transform: translateX(-66.666%);
-        } /* -2/3 pour 3 sets */
+
+        .min-h-\[600px\] {
+          min-height: 600px;
+          min-height: -webkit-fill-available;
+        }
+
+        input,
+        select,
+        textarea {
+          font-size: 16px;
+        }
+
+        .overflow-hidden {
+          -webkit-overflow-scrolling: touch;
+        }
       }
 
-      @keyframes infinite-scroll-desktop {
+      /* STYLES DU CARROUSEL HYBRIDE */
+      .services-carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        cursor: grab;
+      }
+
+      .carousel-wrapper:active {
+        cursor: grabbing;
+      }
+
+      /* Track avec animation auto-scroll */
+      .carousel-track {
+        display: flex;
+        animation: auto-scroll 40s linear infinite;
+        width: max-content;
+      }
+
+      /* Mode manuel (quand l'auto-scroll est désactivé) */
+      .carousel-track.manual-mode {
+        animation: none;
+        transition: transform 0.3s ease;
+      }
+
+      @keyframes auto-scroll {
         0% {
           transform: translateX(0);
         }
         100% {
           transform: translateX(-50%);
-        } /* -1/2 pour 2 sets */
-      }
-
-      .animate-infinite-scroll {
-        animation: infinite-scroll-mobile 120s linear infinite;
-        width: max-content;
-      }
-
-      @media (min-width: 768px) {
-        .animate-infinite-scroll {
-          animation: infinite-scroll-desktop 80s linear infinite;
         }
       }
 
-      .animate-infinite-scroll:hover {
+      .carousel-track.paused {
         animation-play-state: paused;
+      }
+
+      /* Cartes */
+      .carousel-card {
+        flex: 0 0 auto;
+        width: 160px;
+        margin-right: 12px;
+      }
+
+      @media (min-width: 768px) {
+        .carousel-card {
+          width: 180px;
+          margin-right: 16px;
+        }
+
+        .carousel-track {
+          animation: auto-scroll 35s linear infinite;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .carousel-card {
+          width: 200px;
+          margin-right: 20px;
+        }
+
+        .carousel-track {
+          animation: auto-scroll 30s linear infinite;
+        }
+      }
+
+      /* Indicateurs */
+      .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #4b5563;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .indicator.active {
+        background-color: #fbbf24;
+        transform: scale(1.2);
+      }
+
+      /* Message info */
+      .carousel-info {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #9ca3af;
       }
     </style>
   </head>
   <body class="bg-white">
+    <!-- HEADER -->
     <header
       class="bg-black w-full h-auto py-4 flex flex-row justify-between items-center px-4 sm:px-5 fixed top-0 left-0 z-50"
     >
-      <!-- Logo + Titre -->
       <div class="flex flex-row items-center gap-3 flex-1">
-        
-
         <h2 class="text-amber-300 text-2xl sm:text-3xl md:text-4xl font-bold">
           <a
             href="#accueil"
@@ -185,43 +240,34 @@
             Garage THETE
           </a>
         </h2>
-
       </div>
-      <!-- Menu Desktop (caché sur mobile) -->
       <div class="hidden md:flex flex-row gap-6 lg:gap-8">
         <a
           href="#accueil"
           class="text-amber-300 font-bold text-lg lg:text-xl hover:text-amber-400 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+          >Accueil</a
         >
-          Accueil
-        </a>
         <a
           href="#about"
           class="text-amber-300 font-bold text-lg lg:text-xl hover:text-amber-400 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+          >A propos</a
         >
-          A propos
-        </a>
         <a
           href="#services"
           class="text-amber-300 font-bold text-lg lg:text-xl hover:text-amber-400 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+          >Services</a
         >
-          Services
-        </a>
         <a
           href="#avis"
           class="text-amber-300 font-bold text-lg lg:text-xl hover:text-amber-400 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+          >Avis</a
         >
-          Avis
-        </a>
         <a
           href="#contact"
           class="text-amber-300 font-bold text-lg lg:text-xl hover:text-amber-400 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+          >Contact</a
         >
-          Contact
-        </a>
       </div>
-
-      <!-- Bouton Hamburger (visible uniquement sur mobile) -->
       <div class="md:hidden">
         <button
           id="menu-toggle"
@@ -259,8 +305,6 @@
           </svg>
         </button>
       </div>
-
-      <!-- Menu Mobile (caché par défaut) -->
       <div
         id="mobile-menu"
         class="md:hidden hidden absolute top-full left-0 w-full bg-black shadow-lg py-4 px-6 space-y-4 transform transition-all duration-300 ease-in-out"
@@ -268,49 +312,48 @@
         <a
           href="#accueil"
           class="block text-amber-300 font-bold text-xl py-3 px-4 rounded-lg hover:bg-white hover:text-amber-400 transition duration-300"
+          >Accueil</a
         >
-          Accueil
-        </a>
         <a
           href="#about"
           class="block text-amber-300 font-bold text-xl py-3 px-4 rounded-lg hover:bg-white hover:text-amber-400 transition duration-300"
+          >A propos</a
         >
-          A propos
-        </a>
         <a
           href="#services"
           class="block text-amber-300 font-bold text-xl py-3 px-4 rounded-lg hover:bg-white hover:text-amber-400 transition duration-300"
+          >Services</a
         >
-          Services
-        </a>
         <a
           href="#avis"
           class="block text-amber-300 font-bold text-xl py-3 px-4 rounded-lg hover:bg-white hover:text-amber-400 transition duration-300"
+          >Avis</a
         >
-          Avis
-        </a>
         <a
           href="#contact"
           class="block text-amber-300 font-bold text-xl py-3 px-4 rounded-lg hover:bg-white hover:text-amber-400 transition duration-300"
+          >Contact</a
         >
-          Contact
-        </a>
       </div>
     </header>
 
-    <!-- Section Accueil -->
+    <!-- ACCUEIL -->
     <section
       itemprop="name"
       itemscope
       itemtype="https://schema.org/LocalBusiness"
       id="accueil"
-      class="relative w-full h-screen min-h-[600px] bg-cover bg-center bg-fixed"
-      style="background-image: url(&quot;images/background.jpg&quot;)"
+      class="relative w-full h-screen min-h-[600px] overflow-hidden"
     >
-      <!-- Overlay sombre -->
+      <div class="absolute inset-0 bg-gray-900">
+        <img
+          src="images/background.jpg"
+          alt="Garage THETE"
+          class="w-full h-full object-cover"
+          style="transform: translateZ(0); -webkit-transform: translateZ(0)"
+        />
+      </div>
       <div class="absolute inset-0 bg-black/60"></div>
-
-      <!-- Contenu -->
       <div
         class="relative w-full h-full flex flex-col justify-center items-center gap-y-6 px-4 sm:px-6 lg:px-8 text-center"
       >
@@ -329,13 +372,12 @@
         <a
           href="#about"
           class="text-white bg-amber-300 hover:bg-amber-400 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-3 md:py-4 font-bold text-sm sm:text-base md:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+          >Voir plus</a
         >
-          Voir plus
-        </a>
       </div>
     </section>
 
-    <!-- Section À propos -->
+    <!-- À PROPOS -->
     <section
       itemscope
       itemtype="https://schema.org/LocalBusiness"
@@ -346,7 +388,6 @@
         <div
           class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16"
         >
-          <!-- Image -->
           <div class="w-full lg:w-1/2">
             <div
               class="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl"
@@ -358,10 +399,7 @@
               />
             </div>
           </div>
-
-          <!-- Texte -->
           <div class="w-full lg:w-1/2">
-            <!-- Titre de la section -->
             <div class="text-center w-full mb-6 md:mb-10">
               <div class="inline-block">
                 <h2
@@ -374,9 +412,9 @@
             </div>
             <div class="space-y-4 mt-6">
               <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-                Le garage THETE appartient à Mr. THETE - un patron
-                joyeux avec une obsession presque folle pour les voitures. Lui
-                et son équipe de spécialistes ont appris à traduire cette nature
+                Le garage THETE appartient à Mr. THETE - un patron joyeux avec
+                une obsession presque folle pour les voitures. Lui et son équipe
+                de spécialistes ont appris à traduire cette nature
                 obsessionnelle en un service impressionnant, réparant avec
                 beaucoup de finesse.
               </p>
@@ -392,15 +430,9 @@
       </div>
     </section>
 
-    <!-- Section Services -->
-    <section
-      itemscope
-      itemtype="https://schema.org/LocalBusiness"
-      id="services"
-      class="bg-black py-8 md:py-12 lg:py-16"
-    >
+    <!-- SERVICES AVEC CARROUSEL HYBRIDE -->
+    <section id="services" class="bg-black py-8 md:py-12 lg:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Titre de la section -->
         <div class="text-center w-full mb-6 md:mb-10">
           <div class="inline-block">
             <h2
@@ -418,319 +450,24 @@
           </p>
         </div>
 
-        <!-- Carrousel infini - Version mobile et desktop -->
-        <div class="relative overflow-hidden mb-10">
-          <!-- Premier set -->
-          <div class="flex animate-infinite-scroll gap-2 md:gap-3 py-3">
-            <!-- Card 1 - Maintenance -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img1.jpg"
-                    alt="Maintenance"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Maintenance
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Les contrôles réguliers pour maintenir la performance.
-                  </p>
-                </div>
-              </div>
+        <!-- CONTENEUR DU CARROUSEL -->
+        <div class="services-carousel-container">
+          <div class="carousel-wrapper" id="carousel-wrapper">
+            <!-- TRACK DU CARROUSEL -->
+            <div id="carousel-track" class="carousel-track">
+              <!-- Les cartes seront générées par JavaScript -->
             </div>
-
-            <!-- Card 2 - Réparations -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img2.jpg"
-                    alt="Réparations"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Réparations
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Un service de qualité pour des trajets fluides et sûrs.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 - Entretien -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img3.jpg"
-                    alt="Entretien"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Entretien
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Entretien complet pour assurer sécurité de l’auto
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 - Diagnostic -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img4.jpg"
-                    alt="Diagnostic"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Diagnostic
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Analyse complète de votre véhicule avec technologies.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 5 - Carrosserie -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img5.jpg"
-                    alt="Occasion"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Occasion
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Vente de véhicules d'occasion vérifiés et garantis.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- DUPLICATION pour l'effet infini -->
-            <!-- Card 1 - Maintenance (dupliquée) -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img1.jpg"
-                    alt="Maintenance"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Maintenance
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Les contrôles réguliers pour maintenir la performance.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2 - Réparations (dupliquée) -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img2.jpg"
-                    alt="Réparations"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Réparations
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Un service de qualité pour des trajets fluides et sûrs.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 - Entretien (dupliquée) -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img3.jpg"
-                    alt="Entretien"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Entretien
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Entretien complet pour assurer sécurité de l’auto
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 - Diagnostic (dupliquée) -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img4.jpg"
-                    alt="Diagnostic"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Diagnostic
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Analyse complète de votre véhicule avec technologies.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 5 - Carrosserie (dupliquée) -->
-            <div
-              class="min-w-[140px] md:min-w-[160px] lg:min-w-[180px] flex-shrink-0"
-            >
-              <div
-                class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200"
-              >
-                <!-- Image -->
-                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
-                  <img
-                    src="images/img5.jpg"
-                    alt="Carrosserie"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <!-- Contenu -->
-                <div class="p-2 md:p-3 flex flex-col flex-grow text-center">
-                  <h3 class="text-sm md:text-base font-bold text-white mb-1">
-                    Occasion
-                  </h3>
-                  <p
-                    class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1"
-                  >
-                    Vente de véhicules d'occasion vérifiés et garantis.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- DUPLICATION supplémentaire pour mobile -->
-            <!-- Répétez encore une fois les 5 cartes -->
           </div>
+        </div>
+
+        <!-- INDICATEURS -->
+        <div class="carousel-indicators" id="carousel-indicators">
+          <!-- Les indicateurs seront générés par JavaScript -->
         </div>
       </div>
     </section>
 
-    <!-- Section Avis -->
+    <!-- AVIS -->
     <section
       itemscope
       itemtype="https://schema.org/LocalBusiness"
@@ -739,7 +476,6 @@
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-12">
-          <!-- Titre de la section -->
           <div class="text-center w-full mb-6 md:mb-10">
             <div class="inline-block">
               <h2
@@ -751,9 +487,7 @@
             </div>
           </div>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          <!-- Avis 1 -->
           <div class="flex items-start gap-5 max-w-xl">
             <img
               src="images/julien.png"
@@ -761,10 +495,8 @@
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
               onerror="this.src = '/images/img1.jpg'"
             />
-
             <div>
               <h3 class="text-black text-lg font-semibold">Julien Lefebvre</h3>
-
               <p class="text-gray-700 text-sm leading-relaxed mt-1">
                 Super garage super patron, je recommande fortement. Toujours à
                 l'écoute du client et ne change pas des pièces pour rien. Garage
@@ -772,7 +504,6 @@
               </p>
             </div>
           </div>
-
           <div class="flex items-start gap-5 max-w-xl">
             <img
               src="images/vincent.png"
@@ -780,12 +511,10 @@
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
               onerror="this.src = '/images/img1.jpg'"
             />
-
             <div>
               <h3 class="text-black text-lg font-semibold">
                 Vincent et Carole
               </h3>
-
               <p class="text-gray-700 text-sm leading-relaxed mt-1">
                 Tip top ! Un passage à l'improviste suite à une ampoule xénon
                 HS, une prise en charge immédiate avec remplacement dans la
@@ -795,8 +524,6 @@
               </p>
             </div>
           </div>
-
-          <!-- Avis 3 -->
           <div class="flex items-start gap-5 max-w-xl">
             <img
               src="images/marion.png"
@@ -804,10 +531,8 @@
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
               onerror="this.src = '/images/img1.jpg'"
             />
-
             <div>
               <h3 class="text-black text-lg font-semibold">Marion Cara</h3>
-
               <p class="text-gray-700 text-sm leading-relaxed mt-1">
                 Un super garage .Très sympathique. Bon conseil. A pu prendre ma
                 voiture à l'improviste. Prix très correct. Je recommande ce
@@ -815,8 +540,6 @@
               </p>
             </div>
           </div>
-
-          <!-- Avis 4 -->
           <div class="flex items-start gap-5 max-w-xl">
             <img
               src="images/sandrine.png"
@@ -824,10 +547,8 @@
               class="w-20 h-20 rounded-full object-cover flex shrink-0"
               onerror="this.src = '/images/img1.jpg'"
             />
-
             <div>
               <h3 class="text-black text-lg font-semibold">Sandrine Dumont</h3>
-
               <p class="text-gray-700 text-sm leading-relaxed mt-1">
                 Très sympathique et compétent. Un pro qui se débrouille pour
                 dépanner le client. Recherche les pièces. Prix justes. À
@@ -840,25 +561,27 @@
       </div>
     </section>
 
-    <!-- Section Contact -->
+    <!-- CONTACT -->
     <section
       itemscope
       itemtype="https://schema.org/LocalBusiness"
       id="contact"
-      class="relative w-full min-h-[500px] lg:min-h-[600px] bg-cover bg-center bg-fixed"
-      style="background-image: url(&quot;images/background.jpg&quot;)"
+      class="relative w-full min-h-[500px] lg:min-h-[600px] overflow-hidden"
     >
-      <!-- Overlay sombre -->
+      <div class="absolute inset-0 bg-gray-900">
+        <img
+          src="images/background.jpg"
+          alt="Contact Garage THETE"
+          class="w-full h-full object-cover"
+          style="transform: translateZ(0); -webkit-transform: translateZ(0)"
+        />
+      </div>
       <div class="absolute inset-0 bg-black/70"></div>
-
-      <!-- Contenu -->
       <div
         class="relative z-10 w-full h-full px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 flex flex-col justify-center text-white"
       >
         <div class="max-w-7xl mx-auto w-full">
-          <!-- Titre -->
           <div class="mb-8 md:mb-12 lg:mb-16 text-center">
-            <!-- Titre de la section -->
             <div class="text-center w-full mb-6 md:mb-10">
               <div class="inline-block">
                 <h2
@@ -870,12 +593,9 @@
               </div>
             </div>
           </div>
-
-          <!-- Infos -->
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
           >
-            <!-- Horaires -->
             <div class="bg-black/40 p-6 rounded-xl backdrop-blur-sm">
               <h3
                 class="font-bold text-lg md:text-xl uppercase mb-4 pb-2 border-b border-amber-300"
@@ -884,37 +604,35 @@
               </h3>
               <ul class="space-y-2 text-gray-200 text-sm md:text-base">
                 <li class="flex justify-between">
-                  <span>Lundi :</span>
-                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
+                  <span>Lundi :</span
+                  ><span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
-                  <span>Mardi :</span>
-                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
+                  <span>Mardi :</span
+                  ><span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
-                  <span>Mercredi :</span>
-                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
+                  <span>Mercredi :</span
+                  ><span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
-                  <span>Jeudi :</span>
-                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
+                  <span>Jeudi :</span
+                  ><span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
-                  <span>Vendredi :</span>
-                  <span class="font-medium">07:00–12:00, 13:30–19:00</span>
+                  <span>Vendredi :</span
+                  ><span class="font-medium">07:00–12:00, 13:30–19:00</span>
                 </li>
                 <li class="flex justify-between">
-                  <span>Samedi :</span>
-                  <span class="font-medium text-amber-300">Fermé</span>
+                  <span>Samedi :</span
+                  ><span class="font-medium text-amber-300">Fermé</span>
                 </li>
                 <li class="flex justify-between">
-                  <span>Dimanche :</span>
-                  <span class="font-medium text-amber-300">Fermé</span>
+                  <span>Dimanche :</span
+                  ><span class="font-medium text-amber-300">Fermé</span>
                 </li>
               </ul>
             </div>
-
-            <!-- Adresse -->
             <div
               itemprop="address"
               itemscope
@@ -934,14 +652,16 @@
                     rel="noopener noreferrer"
                     class="hover:text-amber-300 transition-colors duration-300 underline"
                   >
-                    <span itemprop="streetAddress">1323 Avenue des Helvètes</span>,</br>
+                    <span itemprop="streetAddress"
+                      >1323 Avenue des Helvètes</span
+                    >,<br />
                     <span itemprop="postalCode">01600</span>
                     <span itemprop="addressLocality">Saint-Bernard</span>
                   </a>
                 </p>
                 <div class="mt-4">
                   <a
-                    href="https://www.google.com/maps/place/Garage+THETE/@45.9530728,4.7471647,17z"
+                    href="https://www.google.com/maps/place/Garage+THETE/@45.9530728,4.7471647,17z/data=!3m1!4b1!4m6!3m5!1s0x47f4900c77064ac1:0x72d39aa7beac9c58!8m2!3d45.9530691!4d4.7497396!16s%2Fg%2F1v830fyw?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="inline-flex items-center bg-amber-300 hover:bg-amber-400 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -970,8 +690,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- Téléphone -->
             <div
               class="bg-black/40 p-6 rounded-xl backdrop-blur-sm md:col-span-2 lg:col-span-1"
             >
@@ -986,9 +704,8 @@
                     itemprop="telephone"
                     href="tel:0474000194"
                     class="hover:text-amber-300 transition-colors duration-300"
+                    >04 74 00 01 94</a
                   >
-                    04 74 00 01 94
-                  </a>
                 </p>
                 <div class="mt-6">
                   <a
@@ -1018,97 +735,45 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="bg-black py-8 md:py-10 lg:py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
         <p class="text-white mb-3">
           <a
             href="mentions-legales.html"
             class="hover:text-amber-300 transition-colors duration-300 underline text-sm md:text-base"
+            >Mentions Légales</a
           >
-            Mentions Légales
-          </a>
         </p>
-
         <p class="text-gray-400 text-sm md:text-base">
           © 2026 | Thomas GROSSAT
         </p>
-
         <div class="mt-2">
           <a
             href="https://www.linkedin.com/in/pierre-thete-519901223/"
             target="_blank"
             rel="noopener noreferrer"
             class="text-gray-400 hover:text-amber-300 transition-colors duration-300 text-sm"
+            >LinkedIn</a
           >
-            LinkedIn
-          </a>
         </div>
-
         <div class="mt-4 text-gray-500 text-xs md:text-sm">
           Garage automobile professionnel - Tous droits réservés
         </div>
-
       </div>
     </footer>
 
-
-    <!-- Script pour l'animation Tailwind -->
     <script>
-      const style = document.createElement("style");
-      style.textContent = `
-                
-                @keyframes infinite-scroll-mobile {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-33.333%); } /* Plus lent sur mobile */
-                }
-
-                @keyframes infinite-scroll-desktop {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-
-                .animate-infinite-scroll {
-                    animation: infinite-scroll-mobile 60s linear infinite;
-                    width: max-content;
-                }
-
-                @media (min-width: 768px) {
-                    .animate-infinite-scroll {
-                        animation: infinite-scroll-desktop 60s linear infinite;
-                    }
-                }
-
-                .animate-infinite-scroll:hover {
-                    animation-play-state: paused;
-                }
-
-                /* Masquer la scrollbar */
-                .relative {
-                    -ms-overflow-style: none;  /* IE and Edge */
-                    scrollbar-width: none;  /* Firefox */
-                }
-
-                .relative::-webkit-scrollbar {
-                    display: none;  /* Chrome, Safari and Opera */
-                }
-
-            `;
-      document.head.appendChild(style);
-
       document.addEventListener("DOMContentLoaded", function () {
+        // Gestion du menu mobile
         const menuToggle = document.getElementById("menu-toggle");
         const mobileMenu = document.getElementById("mobile-menu");
         const menuIcon = document.getElementById("menu-icon");
         const closeIcon = document.getElementById("close-icon");
 
-        // Toggle menu mobile
         menuToggle.addEventListener("click", function () {
           const isExpanded = mobileMenu.classList.toggle("hidden");
           mobileMenu.classList.toggle("active");
-
-          // Changer l'icône
           if (isExpanded) {
             menuIcon.classList.add("hidden");
             closeIcon.classList.remove("hidden");
@@ -1118,7 +783,6 @@
           }
         });
 
-        // Fermer le menu quand on clique sur un lien
         document.querySelectorAll("#mobile-menu a").forEach((link) => {
           link.addEventListener("click", function () {
             mobileMenu.classList.add("hidden");
@@ -1128,26 +792,21 @@
           });
         });
 
-        // Smooth scroll pour tous les liens
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             e.preventDefault();
-
             const targetId = this.getAttribute("href");
             if (targetId === "#") return;
-
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-              // Smooth scroll
               window.scrollTo({
-                top: targetElement.offsetTop - 80, // Ajuste pour la navbar fixe
+                top: targetElement.offsetTop - 80,
                 behavior: "smooth",
               });
             }
           });
         });
 
-        // Fermer le menu si on clique en dehors
         document.addEventListener("click", function (event) {
           if (
             !menuToggle.contains(event.target) &&
@@ -1159,6 +818,337 @@
             closeIcon.classList.add("hidden");
           }
         });
+
+        // CARROUSEL HYBRIDE - Auto-scroll + Manuel
+        const servicesData = [
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
+        ];
+
+        const carouselTrack = document.getElementById("carousel-track");
+        const carouselWrapper = document.getElementById("carousel-wrapper");
+        const indicatorsContainer = document.getElementById(
+          "carousel-indicators",
+        );
+        const carouselStatus = document.getElementById("carousel-status");
+
+        let isAutoScroll = true;
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let currentTranslate = 0;
+        let currentIndex = 0;
+        let resumeTimeout;
+
+        // Générer les cartes (dupliquées pour effet infini)
+        function generateCarouselCards() {
+          carouselTrack.innerHTML = "";
+          const duplicatedData = [...servicesData, ...servicesData];
+
+          duplicatedData.forEach((service, index) => {
+            const card = document.createElement("div");
+            card.className = "carousel-card";
+            card.dataset.index = index % servicesData.length;
+
+            card.innerHTML = `
+              <div class="bg-amber-300 shadow-sm rounded-md overflow-hidden h-[220px] md:h-[240px] flex flex-col hover:shadow-md transition-shadow duration-200 hover:scale-[1.02] transition-transform">
+                <div class="h-28 md:h-32 overflow-hidden flex-shrink-0">
+                  <img src="${service.image}" alt="${service.alt}" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="p-3 md:p-4 flex flex-col flex-grow text-center">
+                  <h3 class="text-sm md:text-base font-bold text-white mb-2">${service.title}</h3>
+                  <p class="text-white text-xs md:text-sm flex-grow flex items-center justify-center px-1 leading-tight">${service.description}</p>
+                </div>
+              </div>
+            `;
+
+            carouselTrack.appendChild(card);
+          });
+        }
+
+        // Générer les indicateurs
+        function generateIndicators() {
+          indicatorsContainer.innerHTML = "";
+
+          servicesData.forEach((_, index) => {
+            const indicator = document.createElement("div");
+            indicator.className = `indicator ${index === 0 ? "active" : ""}`;
+            indicator.dataset.index = index;
+
+            indicator.addEventListener("click", () => {
+              goToSlide(index);
+            });
+
+            indicatorsContainer.appendChild(indicator);
+          });
+        }
+
+        // Aller à une slide spécifique
+        function goToSlide(index) {
+          currentIndex = index;
+          const cardWidth =
+            document.querySelector(".carousel-card").offsetWidth;
+          const margin =
+            window.innerWidth >= 768
+              ? window.innerWidth >= 1024
+                ? 20
+                : 16
+              : 12;
+          const offset = currentIndex * (cardWidth + margin);
+
+          // Passer en mode manuel
+          switchToManualMode();
+          carouselTrack.style.transform = `translateX(-${offset}px)`;
+          currentTranslate = -offset;
+
+          updateIndicators();
+
+          // Revenir en auto après 5 secondes
+          clearTimeout(resumeTimeout);
+          resumeTimeout = setTimeout(() => {
+            if (!isDragging) {
+              switchToAutoMode();
+            }
+          }, 5000);
+        }
+
+        // Passer en mode manuel
+        function switchToManualMode() {
+          isAutoScroll = false;
+          carouselTrack.classList.remove("paused");
+          carouselTrack.classList.add("manual-mode");
+          carouselTrack.style.animation = "none";
+        }
+
+        // Passer en mode auto
+        function switchToAutoMode() {
+          isAutoScroll = true;
+          carouselTrack.classList.remove("manual-mode");
+          carouselTrack.classList.remove("paused");
+          carouselTrack.style.transform = "translateX(0)";
+          carouselTrack.style.animation = "";
+          currentTranslate = 0;
+          currentIndex = 0;
+
+          updateIndicators();
+        }
+
+        // Mettre à jour les indicateurs
+        function updateIndicators() {
+          const indicators = document.querySelectorAll(".indicator");
+          const totalCards = servicesData.length;
+          const calculatedIndex =
+            Math.abs(
+              Math.round(currentTranslate / (getCardWidth() + getMargin())),
+            ) % totalCards;
+          const activeIndex = isAutoScroll ? currentIndex : calculatedIndex;
+
+          indicators.forEach((indicator, i) => {
+            if (i === activeIndex) {
+              indicator.classList.add("active");
+            } else {
+              indicator.classList.remove("active");
+            }
+          });
+        }
+
+        // Mettre à jour le statut
+        function updateStatus(text) {
+          if (carouselStatus) {
+            carouselStatus.textContent = text;
+          }
+        }
+
+        // Obtenir la largeur d'une carte
+        function getCardWidth() {
+          if (window.innerWidth >= 1024) return 200;
+          if (window.innerWidth >= 768) return 180;
+          return 160;
+        }
+
+        // Obtenir la marge
+        function getMargin() {
+          if (window.innerWidth >= 1024) return 20;
+          if (window.innerWidth >= 768) return 16;
+          return 12;
+        }
+
+        // Gestion du drag/sur desktop
+        function initDragAndScroll() {
+          // Desktop: drag avec la souris
+          carouselWrapper.addEventListener("mousedown", (e) => {
+            if (!isAutoScroll) {
+              isDragging = true;
+              startX = e.pageX;
+              scrollLeft = currentTranslate;
+              carouselWrapper.style.cursor = "grabbing";
+              e.preventDefault();
+            }
+          });
+
+          carouselWrapper.addEventListener("mousemove", (e) => {
+            if (!isDragging || isAutoScroll) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = (x - startX) * 1.5;
+            const newTranslate = scrollLeft - walk;
+
+            // Limiter le défilement
+            const maxTranslate =
+              (getCardWidth() + getMargin()) * servicesData.length;
+            currentTranslate = Math.max(
+              -maxTranslate,
+              Math.min(0, newTranslate),
+            );
+
+            carouselTrack.style.transform = `translateX(${currentTranslate}px)`;
+            updateIndicators();
+          });
+
+          carouselWrapper.addEventListener("mouseup", () => {
+            if (isDragging) {
+              isDragging = false;
+              carouselWrapper.style.cursor = "grab";
+
+              // Snap to nearest card
+              const cardWidth = getCardWidth();
+              const margin = getMargin();
+              const nearestIndex = Math.round(
+                Math.abs(currentTranslate) / (cardWidth + margin),
+              );
+              currentIndex = Math.min(nearestIndex, servicesData.length - 1);
+
+              goToSlide(currentIndex);
+            }
+          });
+
+          carouselWrapper.addEventListener("mouseleave", () => {
+            if (isDragging) {
+              isDragging = false;
+              carouselWrapper.style.cursor = "grab";
+            }
+          });
+
+          // Mobile: touch/swipe
+          let touchStartX = 0;
+          let touchStartTranslate = 0;
+
+          carouselWrapper.addEventListener("touchstart", (e) => {
+            if (isAutoScroll) {
+              // Si en mode auto, passer en mode manuel
+              switchToManualMode();
+            }
+
+            touchStartX = e.touches[0].clientX;
+            touchStartTranslate = currentTranslate;
+            isDragging = true;
+            e.preventDefault();
+          });
+
+          carouselWrapper.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const touchX = e.touches[0].clientX;
+            const diff = touchStartX - touchX;
+            const newTranslate = touchStartTranslate - diff * 2;
+
+            // Limiter le défilement
+            const maxTranslate =
+              (getCardWidth() + getMargin()) * servicesData.length;
+            currentTranslate = Math.max(
+              -maxTranslate,
+              Math.min(0, newTranslate),
+            );
+
+            carouselTrack.style.transform = `translateX(${currentTranslate}px)`;
+            updateIndicators();
+          });
+
+          carouselWrapper.addEventListener("touchend", () => {
+            if (isDragging) {
+              isDragging = false;
+
+              // Snap to nearest card
+              const cardWidth = getCardWidth();
+              const margin = getMargin();
+              const nearestIndex = Math.round(
+                Math.abs(currentTranslate) / (cardWidth + margin),
+              );
+              currentIndex = Math.min(nearestIndex, servicesData.length - 1);
+
+              goToSlide(currentIndex);
+            }
+          });
+
+          // Pause auto-scroll au hover
+          carouselWrapper.addEventListener("mouseenter", () => {
+            if (isAutoScroll) {
+              carouselTrack.classList.add("paused");
+            }
+          });
+
+          carouselWrapper.addEventListener("mouseleave", () => {
+            if (isAutoScroll && !isDragging) {
+              carouselTrack.classList.remove("paused");
+            }
+          });
+        }
+
+        // Initialiser le carrousel
+        function initCarousel() {
+          generateCarouselCards();
+          generateIndicators();
+          initDragAndScroll();
+
+          // Réinitialiser périodiquement l'animation auto-scroll
+          setInterval(() => {
+            if (isAutoScroll && !carouselTrack.classList.contains("paused")) {
+              // Réinitialiser l'animation toutes les 30 secondes
+              carouselTrack.style.animation = "none";
+              void carouselTrack.offsetWidth; // Force reflow
+              carouselTrack.style.animation = "";
+            }
+          }, 30000);
+        }
+
+        // Démarrer le carrousel
+        initCarousel();
       });
     </script>
   </body>
