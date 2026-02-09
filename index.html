@@ -143,7 +143,7 @@
       /* Track avec animation auto-scroll */
       .carousel-track {
         display: flex;
-        animation: auto-scroll 40s linear infinite;
+        animation: auto-scroll 140s linear infinite;
         width: max-content;
       }
 
@@ -191,7 +191,7 @@
         }
 
         .carousel-track {
-          animation: auto-scroll 30s linear infinite;
+          animation: auto-scroll 140s linear infinite;
         }
       }
 
@@ -201,20 +201,6 @@
         justify-content: center;
         gap: 8px;
         margin-top: 20px;
-      }
-
-      .indicator {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #4b5563;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .indicator.active {
-        background-color: #fbbf24;
-        transform: scale(1.2);
       }
 
       /* Message info */
@@ -458,11 +444,6 @@
               <!-- Les cartes seront générées par JavaScript -->
             </div>
           </div>
-        </div>
-
-        <!-- INDICATEURS -->
-        <div class="carousel-indicators" id="carousel-indicators">
-          <!-- Les indicateurs seront générés par JavaScript -->
         </div>
       </div>
     </section>
@@ -821,6 +802,234 @@
 
         // CARROUSEL HYBRIDE - Auto-scroll + Manuel
         const servicesData = [
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
+          {
+            id: 1,
+            title: "Maintenance",
+            description:
+              "Les contrôles réguliers pour maintenir la performance.",
+            image: "images/img1.jpg",
+            alt: "Maintenance automobile - Garage THETE",
+          },
+          {
+            id: 2,
+            title: "Réparations",
+            description:
+              "Un service de qualité pour des trajets fluides et sûrs.",
+            image: "images/img2.jpg",
+            alt: "Réparations automobile - Garage THETE",
+          },
+          {
+            id: 3,
+            title: "Pièces/accessoires",
+            description: "Pièces intérieures et extérieures haut de gamme.",
+            image: "images/img3.jpg",
+            alt: "Pièces et accessoires automobile - Garage THETE",
+          },
+          {
+            id: 4,
+            title: "Diagnostic",
+            description:
+              "Analyse complète de votre véhicule avec technologies.",
+            image: "images/img4.jpg",
+            alt: "Diagnostic automobile - Garage THETE",
+          },
+          {
+            id: 5,
+            title: "Occasion",
+            description: "Vente de véhicules d'occasion vérifiés et garantis.",
+            image: "images/img5.jpg",
+            alt: "Véhicules d'occasion - Garage THETE",
+          },
           {
             id: 1,
             title: "Maintenance",
